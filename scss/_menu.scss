@@ -2,7 +2,7 @@
 .menu-btn {
     position: absolute;
     z-index: 3;
-    right:35px;
+    right: 35px;
     top: 35px;
     cursor: pointer;
     @include easeOut;
@@ -11,25 +11,28 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
         @include easeOut;
     }
 
     // Rotate intro x with menu lines
-    &.close{
+    &.close {
         transform: rotate(180deg);
 
         .btn-line {
+
             //line 1 - rotate
-            &:nth-child(1){
+            &:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px)
             }
+
             //line 2 - hide
-            &:nth-child(2){
+            &:nth-child(2) {
                 opacity: 0;
             }
+
             //Line 3 - rotate 
-            &:nth-child(3){
+            &:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
         }
@@ -37,19 +40,19 @@
 }
 
 // Menu overlay
-.menu{
+.menu {
     position: fixed;
-    top:0;
+    top: 0;
     width: 100%;
     opacity: 0.9;
     visibility: hidden;
 
-    &.show{
+    &.show {
         visibility: visible;
     }
 
     &-branding,
-    &-nav{
+    &-nav {
         display: flex;
         flex-flow: column wrap;
         align-items: center;
@@ -61,7 +64,7 @@
     }
 
     &-nav {
-        margin:0;
+        margin: 0;
         padding: 0;
         background: darken($primary-color, 5);
         list-style: none;
@@ -79,12 +82,12 @@
         background: $primary-color;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
-    
+
         &.show {
             // slide in from bottom
             transform: translate3d(0, 0, 0);
         }
-    
+
         .portrait {
             width: 250px;
             height: 250px;
@@ -103,10 +106,11 @@
             transform: translate3d(0, 0, 0);
         }
 
-        &.current > a{
+        &.current>a {
             color: $secondary-color;
         }
     }
+
     .nav-link {
         display: inline-block;
         position: relative;
@@ -114,20 +118,20 @@
         text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 300;
-        color: #fff;
+        color: set-text-color($primary-color);
         text-decoration: none;
         font-family: cursive; //change to some good font later
         @include easeOut;
 
         &:hover {
-            color:$secondary-color;
+            color: $secondary-color;
         }
     }
 }
 
 //Delay each nav item slide
 @for $x from 1 through 4 {
-    .nav-item:nth-child(#{$x}){
-        transition-delay: $x * 0.2s; 
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x * 0.2s;
     }
 }
